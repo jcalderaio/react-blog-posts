@@ -6,6 +6,13 @@ const API_KEY = '?key=johncalderaio1234';
 
 export function fetchPosts() {
   const request = axios.get(`${ROOT_URL}/posts${API_KEY}`);
+  
+  /* 
+  ****** Redux promise ******* - Redux Promise sees the incoming action. It looks specifically at 
+  the payload property. If the payload is a promise, Redux-Promise stops the action entirely. Then, 
+  once the request finishes, it dispatches a new action of the same type, but with the payload of 
+  the resolved request. In other words, Redux-Promise unwraps the promise for us.
+  */
 
   return {
     type: FETCH_POSTS,
