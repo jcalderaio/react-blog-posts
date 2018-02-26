@@ -11,7 +11,9 @@ export function fetchPosts() {
   ****** Redux promise ******* - Redux Promise sees the incoming action. It looks specifically at 
   the payload property. If the payload is a promise, Redux-Promise stops the action entirely. Then, 
   once the request finishes, it dispatches a new action of the same type, but with the payload of 
-  the resolved request. In other words, Redux-Promise unwraps the promise for us.
+  the resolved request. So, Redux-Promise stops the action, waits for the promise to resolve, and 
+  sends the resolved request to the reducer as the payload. In other words, Redux-Promise unwraps 
+  the promise for us.
   */
 
   return {
